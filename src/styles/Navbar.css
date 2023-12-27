@@ -1,0 +1,474 @@
+:root {
+    --font-family: 'LT Bump', sans-serif;
+    --main-font-family: 'Roboto Condensed', sans-serif;
+    --principal-text-color: #fff;
+    --secondary-text-color: #252525;
+    --contrast-color: #ebebeb;
+    --principal-background-color: #141414;
+    --secondary-background-color: #fff;
+    --gap: 1rem;
+    --padding: 1rem;
+    --font-size: 2rem;
+    --border-radius: 5px;
+    --navbar-icon-color : #6f4bf0;
+    --link-hover-color: #6d4cf1;
+    --footer-color : #787878;
+}
+
+.pre_navbar {
+    padding: calc(var(--padding)*0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    text-transform: uppercase;
+    color: var(--principal-text-color);
+    background-image: url("../images/background.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: calc(var(--font-size) * 0.45);
+}
+
+.pre_navbar strong {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(var(--font-size) * 1.75);
+    max-height: 60px;
+}
+
+.pre_navbar strong p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: calc(var(--font-size) * 1.25);
+    margin-top: -8px;
+    margin-bottom: -10px;
+}
+
+.discount {
+    font-size: calc(var(--font-size) * 0.4);
+}
+
+.pre_navbar_text {
+    font-size: calc(var(--font-size) * 0.45);
+    margin: 0 0.8rem;
+}
+
+.pre_navbar img {
+    width: 3.5rem;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.navbar {
+    position: relative;
+    padding-left: calc(var(--padding) * 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary-background-color);
+}
+
+.menu_icon{
+    font-size: calc(var(--font-size)*1.25);
+    color: var(--secondary-text-color);
+}
+
+.navbar_logo_desktop{
+    display: none;
+}
+
+.navbar_logo_mobile{
+    width: 60px;
+}
+
+.navbar_links{
+    display: none;
+}
+
+.navbar_categories{
+    display: flex;
+    gap: calc(var(--gap)*0.15);
+}
+
+.navbar_categories_men, .navbar_categories_women{
+    font-size: calc(var(--font-size)*1);
+    display: grid;
+    place-items: center;
+    background: var(--secondary-text-color);
+    color: var(--principal-text-color);
+    border-radius: 5px;
+    padding: calc(var(--padding)*0.25);
+}
+
+.navbar_links_list {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hombre_link,
+.mujer_link,
+.ubicanos_link,
+.escribenos_link,
+.carrito_link {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    margin-left: 30px;
+    position: relative;
+}
+
+.mujer_link_item,
+.hombre_link_item,
+.ubicanos_link_item,
+.escribenos_link_item,
+.carrito_link_item {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: var(--main-font-family);
+    text-transform: uppercase;
+    font-size: calc(var(--font-size) * 0.8);
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    padding: 0 calc(var(--padding) * 1.25);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: color 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hombre_link_item::before,
+.mujer_link_item::before,
+.ubicanos_link_item::before,
+.escribenos_link_item::before,
+.hombre_link_item::after,
+.mujer_link_item::after,
+.ubicanos_link_item::after,
+.escribenos_link_item::after{
+    content: "";
+    height: 3px;
+    width: 0;
+    background: var(--link-hover-color);
+    position: absolute;
+    transition: width 0.3s ease;
+}
+
+.mujer_link_item::before,
+.hombre_link_item::before,
+.ubicanos_link_item::before,
+.escribenos_link_item::before {
+    top: 0;
+    left: 0;
+}
+
+.mujer_link_item::after,
+.hombre_link_item::after,
+.ubicanos_link_item::after,
+.escribenos_link_item::after {
+    bottom: 0;
+    right: 0;
+}
+
+.mujer_link_item:hover::before,
+.hombre_link_item:hover::before,
+.mujer_link_item:hover::after,
+.hombre_link_item:hover::after,
+.ubicanos_link_item:hover:before,
+.ubicanos_link_item:hover:after,
+.escribenos_link_item:hover:before,
+.escribenos_link_item:hover:after{
+    width: 100%;
+}
+
+.carrito_link {
+    margin: 0;
+    font-size: calc(var(--font-size) * 1.2);
+}
+
+.carrito_link_item img {
+    width: 45px;
+}
+
+.subMenu_hombre, .subMenu_mujer{
+    font-family: var(--font-family);
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -150%;
+    z-index: -9;
+    background: var(--secondary-background-color);
+    display: none;
+    justify-content: center;
+    gap: calc(var(--gap));
+    transition: top .3s ease;
+}
+
+.tendencias_colecciones h2,
+.ropa_hombre_por_tipo h2,
+.ropa_mujer_por_tipo h2,
+.accesorios h2,
+.ropa_interior_pijamas h2,
+.calzado_hombre h2,
+.calzado_mujer h2{
+    padding: 0 calc(var(--padding));
+    color: var(--secondary-text-color);
+    font-size: calc(var(--font-size)*0.65);
+}
+
+.tendencias_colecciones ul,
+.ropa_hombre_por_tipo ul,
+.ropa_mujer_por_tipo ul,
+.accesorios ul,
+.ropa_interior_pijamas ul,
+.calzado_hombre ul,
+.calzado_mujer ul{
+    border-left: 1px solid var(--contrast-color);
+    padding: 0 calc(var(--padding));
+    list-style: none;
+}
+
+.ropa_mujer_por_tipo ul,
+.ropa_hombre_por_tipo ul,
+.accesorios ul{
+    column-count: 2;
+    break-inside: avoid;
+}
+
+.tendencias_colecciones ul li,
+.ropa_hombre_por_tipo ul li,
+.ropa_mujer_por_tipo ul li,
+.accesorios ul li,
+.ropa_interior_pijamas ul li,
+.calzado_hombre ul li,
+.calzado_mujer ul li{
+    margin-bottom: 5px;
+}
+
+.tendencias_colecciones ul li a,
+.ropa_hombre_por_tipo ul li a,
+.ropa_mujer_por_tipo ul li a,
+.accesorios ul li a,
+.ropa_interior_pijamas ul li a,
+.calzado_hombre ul li a,
+.calzado_mujer ul li a{
+    transition: .2s ease;
+    text-decoration: none;
+    color: var(--secondary-text-color);
+}
+
+.tendencias_colecciones ul li a:hover,
+.ropa_hombre_por_tipo ul li a:hover,
+.ropa_mujer_por_tipo ul li a:hover,
+.accesorios ul li a:hover,
+.ropa_interior_pijamas ul li a:hover,
+.calzado_hombre ul li a:hover,
+.calzado_mujer ul li a:hover{
+    color: #7d7d7d;
+}
+
+.box_search_mobile{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--secondary-text-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: calc(var(--padding)*0.75) 0;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.box_search_mobile input{
+    font-family: var(--main-font-family);
+    width: 20rem;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    padding: calc(var(--padding)*0.5);
+}
+
+.box_search_mobile button{
+    background: none;
+    border: 0;
+    display: grid;
+    place-items: center;
+    font-size: calc(var(--font-size)*0.75);
+    color: var(--principal-text-color);
+}
+
+.navbar_group_icons{
+    display: flex;
+}
+
+.navbar_icon_search,
+.navbar_icon_orders,
+.navbar_icon_account,
+.navbar_icon_cart{
+    border-left: solid 2px var(--contrast-color);
+    font-family: var(--main-font-family);
+    text-transform: capitalize;
+    font-size: calc(var(--font-size)*0.45);
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: calc(var(--padding)*0.5);
+}
+
+.icon_search,
+.icon_orders,
+.icon_account,
+.icon_cart{
+    color: var(--secondary-text-color);
+    font-size: calc(var(--font-size));
+    display: block;
+}
+
+.sideMenu{
+    overflow-y: scroll;
+    top: 0;
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--secondary-background-color);
+    transition: left .3s ease;
+    box-shadow: 0px 0px 2px 0px var(--secondary-text-color);
+}
+
+.menu_list{
+    margin-top: 3.25rem;
+    padding: 0;
+    list-style: none;
+}
+
+.list_item{
+    font-family: var(--font-family);
+}
+
+.open_close_subMenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--padding)*0.8) calc(var(--padding)*1.25);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size)*0.65);
+    background: var(--secondary-text-color);
+    color: var(--principal-text-color);
+}
+
+.subList_item{
+    list-style: none;
+    padding:  0;
+}
+
+.subList_title{
+    background: #bababa;
+    text-transform: capitalize;
+    font-size: calc(var(--font-size)*0.6);
+    padding: calc(var(--padding)*0.8) calc(var(--padding)*2);
+    display: block;
+}
+
+.subCategory_list{
+    list-style: none;
+    padding: 0;
+}
+
+.subCategory_list_item{
+    font-size: calc(var(--font-size)*0.55);
+    padding: 0;
+}
+
+.subCategory_list_item:not(:last-child){
+    border-bottom: var(--secondary-text-color) 1px solid;
+}
+
+.icon_sideMenu{
+    color: var(--secondary-text-color);
+    font-size: calc(var(--font-size)*1.25);
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
+@media (min-width: 680px) {
+    .pre_navbar strong {
+        gap: calc(var(--gap));
+        font-size: calc(var(--font-size) * 2.75);
+    }
+
+    .pre_navbar img{
+        width: 4rem;
+    }
+
+    .percentage {
+        font-size: calc(var(--font-size) * 1.75);
+        margin-bottom: -15px;
+    }
+
+    .pre_navbar_text {
+        font-size: calc(var(--font-size));
+        margin: 0 2.5rem;
+    }
+    .navbar{
+        padding: calc(var(--padding)*0.75) calc(var(--padding)*3.5);
+    }
+    .menu_icon{
+        font-size: calc(var(--font-size)*1.25);
+    }
+    .navbar_logo_mobile{
+        display: none;
+    }
+    .navbar_logo_desktop{
+        display: block;
+        width: 160px;
+    }
+    .navbar_icon_search,
+    .navbar_icon_orders,
+    .navbar_icon_account,
+    .navbar_icon_cart{
+        padding: calc(var(--padding)*0.75);
+        font-size: calc(var(--font-size)*0.5);
+    }
+}
+
+@media (min-width : 1238px){
+    .navbar_logo_desktop{
+        width: 220px;
+    }
+
+    .menu_icon{
+        display: none;
+        flex-direction: row;
+    }
+
+    .navbar_links{
+        display: flex;
+    }
+
+    .subMenu_hombre, .subMenu_mujer{
+        display: flex;
+    }
+    .navbar_group_icons{
+        display: none;
+    }
+}

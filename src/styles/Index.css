@@ -1,0 +1,63 @@
+.main_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    padding: calc(var(--padding)*3) 0;
+    column-gap: calc(var(--gap)*0.75);
+    row-gap: calc(var(--gap)*1.75);
+}
+
+.card_grid img {
+    width: 100%;
+}
+
+.card_grid p{
+    margin-top: 5px;
+    padding: 0 calc(var(--padding)*0.75);
+    gap: calc(var(--gap)*0.25);
+    font-family: var(--main-font-family);
+    display: flex;
+    flex-direction: column;
+    font-size: calc(var(--font-size)*0.75);
+}
+
+.card_grid p strong{
+    color: #436b9d;
+    text-transform: capitalize;
+}
+
+.card_grid p button{
+    cursor: pointer;
+    font-weight: 600;
+    padding: calc(var(--padding)*0.5);
+    text-transform: uppercase;
+    background: transparent;
+    border: 2px solid var(--principal-background-color);
+    font-size: calc(var(--font-size)*0.65);
+    transition: all .3s ease;
+}
+
+.card_grid p button:hover{
+    background: var(--secondary-text-color);
+    color: var(--principal-text-color);
+}
+
+@media ( min-width : 680px ){
+    .banner {
+        height: 500px;
+        background-position: 85% 6%;
+    }
+
+    main {
+        padding: 0 calc(var(--padding) * 2.5);
+    }
+    
+    .main_grid {
+        padding: calc(var(--padding) * 1.5) 0;
+        column-gap: calc(var(--gap)*1.5);
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    } 
+
+    .card_grid p{
+        font-size: calc(var(--font-size)*1);
+    }
+}

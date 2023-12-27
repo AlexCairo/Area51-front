@@ -1,0 +1,47 @@
+import { useState, useEffect } from "react";
+import CarouselComponent from "../components/CarouselComponent";
+import { listarSubCategorias } from "../services/categorias.service";
+import "../styles/Index.css";
+import Loader from "../components/Loader";
+
+//Images
+import imgDefault from "../images/modelo4.jpg"
+
+const Index = () => {
+
+    const [ subCategorias, setSubCategorias ] = useState();
+    const [ showLoader, setShowLoader ] = useState(true);
+
+    const obtenerSubCategorias = async (id) => {
+        const res = await listarSubCategorias(id);
+        setSubCategorias(res.data.data);
+        setShowLoader(false);
+    }
+
+    useEffect(() => {
+        const newRandomId = Math.floor(Math.random() * (14 - 2 + 1)) + 2;
+        obtenerSubCategorias(newRandomId);
+      }, []);
+
+    return(
+        <main>
+            <CarouselComponent />
+            <section className="main_grid">
+            {showLoader ? <div className="loader"><Loader /></div>
+            : subCategorias.products.slice(0, 4).map(item => (
+                <div className="card_grid" key={item.id}>
+                    <img src={imgDefault} alt="imgDefault" />
+                    <p>
+                        <strong>{item.name}</strong>
+                        <span>S/. {item.price}</span>
+                        <button>seleccionar opciones</button>
+                    </p>
+                </div>
+            ))}
+            </section>
+        </main>
+    )
+}
+
+
+export default Index;
