@@ -28,6 +28,7 @@ const Navbar = () => {
     const [ searchBox, setSearchBox ] = useState(false);
 
     const toogleSearchBox = () => setSearchBox(!searchBox);
+    const toggleSideMenu = () => setOpenSideMenu(!openSideMenu);
 
     const toggleMenuHombre = () => {
         setOpenMenuHombre(!openMenuHombre);
@@ -58,8 +59,6 @@ const Navbar = () => {
           window.removeEventListener('resize', closeMenuOnSmallScreen);
         };
     },[]);
-
-    const toggleSideMenu = () => setOpenSideMenu(!openSideMenu);
 
     return(
         <header>
@@ -233,6 +232,7 @@ const Navbar = () => {
                         <SubMenu 
                             key={index}
                             list={item}
+                            toggle={toggleSideMenu}
                         />
                     ))}
                 </ul> }

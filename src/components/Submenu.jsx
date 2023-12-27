@@ -2,7 +2,7 @@ import { useState } from "react"
 import NavLinkStyled from "../styledComponents/NavLinkStyled"
 import { MdArrowForwardIos } from "react-icons/md";
 
-const SubMenu = ({list}) => {
+const SubMenu = ({list, toggle}) => {
 
     const [ openSubMenu, setOpenSubMenu ] = useState(true);
     const toggleSubMenu = () => setOpenSubMenu(!openSubMenu);
@@ -19,7 +19,7 @@ const SubMenu = ({list}) => {
                     <ul className="subCategory_list">
                         {categoryItem.subcategories.map((subCategoryItem) => (
                             <li key={subCategoryItem.id} className="subCategory_list_item">
-                                <NavLinkStyled to={`/${genderLink}/${categoryItem.name.toLowerCase().replaceAll(" ", "-")}/${subCategoryItem.name.toLowerCase().replaceAll(" ","-")}&${subCategoryItem.id}`}>{subCategoryItem.name}</NavLinkStyled>
+                                <NavLinkStyled onClick={toggle} to={`/${genderLink}/${categoryItem.name.toLowerCase().replaceAll(" ", "-")}/${subCategoryItem.name.toLowerCase().replaceAll(" ","-")}&${subCategoryItem.id}`}>{subCategoryItem.name}</NavLinkStyled>
                             </li>
                         ))}
                     </ul>
