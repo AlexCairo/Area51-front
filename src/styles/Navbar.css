@@ -304,6 +304,22 @@ header{
     padding: calc(var(--padding)*0.5);
 }
 
+.navbar_icon_cart{
+    position: relative;
+}
+
+.navbar_icon_cart > span{
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    color: var(--principal-text-color);
+    background: red;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    border-radius: calc(var(--border-radius)*500);
+}
+
 .icon_search,
 .icon_orders,
 .icon_account,

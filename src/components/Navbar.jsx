@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 //Components
 import SubMenuMobile from "../components/SubmenuMobile"
@@ -21,7 +21,12 @@ import alien2 from "../images/alien2.webp"
 import logo2 from "../images/logo2.png"
 import SubMenuDesktop from "./SubMenuDesktop";
 
+//Context
+import { carritoContext } from "../context/CarritoContext";
+
 const Navbar = () => {
+
+    const { lista } = useContext(carritoContext);
     const [ categorias, setCategorias ] = useState();
     const [ openSideMenu, setOpenSideMenu ] = useState(false);
     const [ openMenuHombre, setOpenMenuHombre ] = useState(false);
@@ -101,7 +106,7 @@ const Navbar = () => {
                     <span onClick={toogleSearchBox} className="navbar_icon_search"><CiSearch className="icon_search"/>buscador</span>
                     <a href="/" className="navbar_icon_orders"><FaTruckFast className="icon_orders"/>mis pedidos</a>
                     <a href="/" className="navbar_icon_account"><MdOutlineAccountCircle className="icon_account"/>mi cuenta</a>
-                    <a href="/carrito" className="navbar_icon_cart"><MdOutlineShoppingBag className="icon_cart"/>carrito</a>
+                    <a href="/carrito" className="navbar_icon_cart"><MdOutlineShoppingBag className="icon_cart"/>carrito {lista.length >= 1 && <span>lista.length</span>}</a>
                 </div>
                 {categorias && 
                 <>

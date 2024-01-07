@@ -76,12 +76,12 @@ const DetallePage = () => {
                     <div className="product_price">
                         {product.has_discount === 1 ?
                             <>
-                                <del>S/.{product.price}</del>
-                                <strong>S/.{(product.price - (product.price * (product.percentage_discount / 100))).toFixed(2)}</strong>
+                                <del>S/.{productVariant.price}</del>
+                                <strong>S/.{(productVariant.price - (productVariant.price * (product.percentage_discount / 100))).toFixed(2)}</strong>
                                 <span className="discount_box">{product.percentage_discount}%</span>
                             </>
                         : 
-                            <span>S/.{product.price}</span>                            
+                            <span>S/.{productVariant.price}</span>                            
                         }    
                     </div>
                     <div className="color_info">
