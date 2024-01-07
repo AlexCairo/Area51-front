@@ -4,20 +4,29 @@ import './styles/App.css';
 //Pages
 import Index from "./pages/Index";
 import ProductsPage from "./pages/Products";
+import DetallePage from "./pages/DetallePage";
+import CarritoPage from "./pages/CarritoPage";
 
 //Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+//Context
+import { CarritoProvider } from "./context/CarritoContext";
+
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Index /> }/>
-        <Route path="/:gender/:category/:subCategory" element = {<ProductsPage />} />
-      </Routes>    
-      <Footer />
+      <CarritoProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Index /> }/>
+          <Route path="/:gender/:category/:subCategory" element = {<ProductsPage />} />
+          <Route path="/:producto/:idProducto/variante/:idVariant" element = {<DetallePage />}/>
+          <Route path="/carrito" element = {<CarritoPage />} />
+        </Routes>    
+        <Footer />
+      </CarritoProvider>
     </BrowserRouter>
   );
 }

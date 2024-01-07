@@ -68,6 +68,7 @@ header{
     position: sticky;
     top: 0;
     width: 100%;
+    z-index: 999;
 }
 
 .navbar {
@@ -211,74 +212,44 @@ header{
     width: 100%;
     position: absolute;
     top: -150%;
+    opacity: 0;
     z-index: -9;
     background: var(--secondary-background-color);
     display: none;
     justify-content: center;
     gap: calc(var(--gap));
-    transition: top .3s ease;
+    transition: all .3s ease;
 }
 
-.tendencias_colecciones h2,
-.ropa_hombre_por_tipo h2,
-.ropa_mujer_por_tipo h2,
-.accesorios h2,
-.ropa_interior_pijamas h2,
-.calzado_hombre h2,
-.calzado_mujer h2{
+.subCategory_container h2{
     padding: 0 calc(var(--padding));
     color: var(--secondary-text-color);
     font-size: calc(var(--font-size)*0.65);
 }
 
-.tendencias_colecciones ul,
-.ropa_hombre_por_tipo ul,
-.ropa_mujer_por_tipo ul,
-.accesorios ul,
-.ropa_interior_pijamas ul,
-.calzado_hombre ul,
-.calzado_mujer ul{
+.subCategory_container ul{
     border-left: 1px solid var(--contrast-color);
     padding: 0 calc(var(--padding));
     list-style: none;
 }
 
-.ropa_mujer_por_tipo ul,
-.ropa_hombre_por_tipo ul,
-.accesorios ul{
+.subCategory_container:nth-child(2) ul,
+.subCategory_container:nth-child(3) ul{
     column-count: 2;
     break-inside: avoid;
 }
 
-.tendencias_colecciones ul li,
-.ropa_hombre_por_tipo ul li,
-.ropa_mujer_por_tipo ul li,
-.accesorios ul li,
-.ropa_interior_pijamas ul li,
-.calzado_hombre ul li,
-.calzado_mujer ul li{
+.subCategory_container ul li{
     margin-bottom: 5px;
 }
 
-.tendencias_colecciones ul li a,
-.ropa_hombre_por_tipo ul li a,
-.ropa_mujer_por_tipo ul li a,
-.accesorios ul li a,
-.ropa_interior_pijamas ul li a,
-.calzado_hombre ul li a,
-.calzado_mujer ul li a{
+.subCategory_container ul li a{
     transition: .2s ease;
     text-decoration: none;
     color: var(--secondary-text-color);
 }
 
-.tendencias_colecciones ul li a:hover,
-.ropa_hombre_por_tipo ul li a:hover,
-.ropa_mujer_por_tipo ul li a:hover,
-.accesorios ul li a:hover,
-.ropa_interior_pijamas ul li a:hover,
-.calzado_hombre ul li a:hover,
-.calzado_mujer ul li a:hover{
+.subCategory_container ul li a:hover{
     color: #7d7d7d;
 }
 

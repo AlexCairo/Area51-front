@@ -2,7 +2,7 @@ import { useState } from "react"
 import NavLinkStyled from "../styledComponents/NavLinkStyled"
 import { MdArrowForwardIos } from "react-icons/md";
 
-const SubMenu = ({list, toggle}) => {
+const SubMenuMobile = ({list, toggle}) => {
 
     const [ openSubMenu, setOpenSubMenu ] = useState(true);
     const toggleSubMenu = () => setOpenSubMenu(!openSubMenu);
@@ -30,4 +30,4 @@ const SubMenu = ({list, toggle}) => {
     )
 }
 
-export default SubMenu;
+export default SubMenuMobile;

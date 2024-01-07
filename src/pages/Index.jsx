@@ -26,19 +26,26 @@ const Index = () => {
     return(
         <main>
             <CarouselComponent />
-            <section className="main_grid">
-            {showLoader ? <div className="loader"><Loader /></div>
-            : subCategorias.products.slice(0, 4).map(item => (
-                <div className="card_grid" key={item.id}>
-                    <img src={imgDefault} alt="imgDefault" />
-                    <p>
-                        <strong>{item.name}</strong>
-                        <span>S/. {item.price}</span>
-                        <button>seleccionar opciones</button>
-                    </p>
+            {showLoader ? (
+                <div className="loader">
+                    <Loader />
                 </div>
-            ))}
-            </section>
+            ) : (
+                <section className="main_grid">
+                    {subCategorias.products.slice(0, 4).map(item => (
+                        <div className="card_grid" key={item.id}>
+                            <div className="card_grid_container_img">
+                                <img src={item.image_path} alt={item.name} />
+                            </div>                            
+                            <p>
+                                <strong>{item.name}</strong>
+                                <span>S/. {item.price}</span>
+                                <button>seleccionar opciones</button>
+                            </p>
+                        </div>
+                    ))}
+                </section>
+            )}
         </main>
     )
 }

@@ -44,8 +44,8 @@ const ProductsPage = () => {
                 </div>
               </div>
               <section className="products_section">
-                {subCategories.products
-                    .slice()
+                {subCategories.products.flatMap((product) => (
+                    product.variants.slice()
                     .sort((a, b) => {
                         if (filterType === 'Precio') {
                         return a.price - b.price;
@@ -56,23 +56,44 @@ const ProductsPage = () => {
                         } else {
                         return new Date(a.fecha) - new Date(b.fecha);
                         }
-                    }).map((item) => (
-                  <div className="card_item" key={item.id}>
-                    <div className="card_item_container_img">
-                      <img src={imgDefault} alt={item.name}/>
-                      <ul className="colors_list">
-                        <li style={{ backgroundColor: "red" }}></li>
-                        <li style={{ backgroundColor: "black" }}></li>
-                        <li style={{ backgroundColor: "orange" }}></li>
-                        <li style={{ backgroundColor: "green" }}></li>
-                    </ul>
-                    </div>
-                    <p>
-                      <strong>{item.name}</strong>
-                      <span>S/.{item.price}</span>
-                    </p>                    
-                  </div>
-                ))}
+                    }) .map((item) => (
+                      <div className="card_item" key={item.id}>
+                        <div className="card_item_container_img">              
+                          <a href={`/${product.name.toLowerCase().replaceAll(" ","-")}/${product.id}/variante/${item.id}`}>
+                            <img src={imgDefault} alt={item.name}/>
+                          </a>
+                          <ul className="colors_list">
+                            {Array.from(new Set(product.variants.map(elem => elem.color.value))).map((uniqueColor, index) => (
+                                <li key={index} style={{ backgroundColor: uniqueColor }} ></li>
+                            ))}
+                          </ul>                          
+                        </div>
+                        <div className="card_item_info">
+                          <strong>{item.name}</strong>
+                          <div className="card_item_info_prices_and_options">
+                            <table className="table_prices">
+                              <tbody>
+                                {product.has_discount === 1 && (
+                                  <tr className="preview_price">
+                                    <td>Antes</td>
+                                    <td style={{textAlign: "end"}}><del>S/{product.price}</del></td>
+                                  </tr>
+                                )}
+                                <tr className="online_price">
+                                  <td>Online</td>
+                                  <td style={{textAlign: "end", color : "red"}}>
+                                    S/{product.has_discount === 1 ? (product.price - (product.price * (product.percentage_discount / 100))).toFixed(2) : product.price}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <button>seleccionar opciones</button>
+                          </div>
+                        </div> 
+                        {product.has_discount === 1 && <span className="product_discount">{product.percentage_discount}%</span>}
+                      </div>
+                    ))
+                  ))}
               </section>
             </>}
         </>
