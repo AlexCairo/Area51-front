@@ -7,7 +7,9 @@
 .loader img{
     width: 8rem;
 }
-
+.products_list{
+    padding-bottom: 4rem;
+}
 .filters_box{
     font-family: var(--main-font-family);
     padding: calc(var(--padding)*1.25) calc(var(--padding)*0.75);
@@ -158,19 +160,48 @@
 
 @media ( min-width : 680px ){
     .filters_box{
+        flex-direction: column;
         justify-content: center;
-        flex-direction: row;
         align-items: center;
     }
-
     .filters select{
         width: 10rem;
+    }
+    .preview_price{
+        font-size: calc(var(--font-size)*0.55);
+    }
+    .product_discount{
+        font-size: calc(var(--font-size)*0.6);
+        width: 3rem;
+        text-align: center;
     }
 }
 
 @media ( min-width : 940px ){
+    .filters{
+        border: 0;
+        border-bottom: 2px solid var(--secondary-text-color);
+        gap: calc(var(--gap)*0.5);
+        padding: calc(var(--padding)*0.25);
+    }
+    .filters_box{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border: 0;
+    }
+    .filters select{
+        font-family: var(--main-font-family);
+        width: 10rem;
+        padding: calc(var(--padding)*0.25);
+    }
+    .products_list{
+        max-width: 75%;
+        margin: 0 auto;
+        display: flex;
+    }
     .products_section{
-        max-width: 80%;
+        max-width: 70%;
         margin: 0 auto;
         column-gap: calc(var(--gap)*1.25);
         grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -183,10 +214,10 @@
         height: 25px;
         width: 25px;
     }
-    .card_item p{
-        font-size: calc(var(--font-size)*0.85);
+    .online_price{
+        font-size: calc(var(--font-size)*0.75);
     }
-    .card_item p button{
+    .preview_price{
         font-size: calc(var(--font-size)*0.65);
     }
 }

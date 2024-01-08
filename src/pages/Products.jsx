@@ -28,7 +28,7 @@ const ProductsPage = () => {
     return (
         <>
           {showLoader ? <div className="loader"><Loader /></div> :
-           <>
+           <div className="products_list">
               <div className="filters_box">
                 <span className="total_products">
                   {subCategories.products.length} productos
@@ -87,7 +87,6 @@ const ProductsPage = () => {
                                 </tr>
                               </tbody>
                             </table>
-                            <button>seleccionar opciones</button>
                           </div>
                         </div> 
                         {product.has_discount === 1 && <span className="product_discount">{product.percentage_discount}%</span>}
@@ -95,7 +94,7 @@ const ProductsPage = () => {
                     ))
                   ))}
               </section>
-            </>}
+            </div>}
         </>
       );      
 }
