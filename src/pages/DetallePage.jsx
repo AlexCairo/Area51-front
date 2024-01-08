@@ -39,8 +39,8 @@ const DetallePage = () => {
         setTallaVariant(value);
     }
 
-    const handleAddProduct = (elem,cant) => {
-        agregar(elem, cant);
+    const handleAddProduct = (variant,cant, product) => {
+        agregar(variant, cant, product);
     }
 
     const disminuirCantidadProducto = () => {
@@ -110,7 +110,7 @@ const DetallePage = () => {
                             <span>{quantity}</span>
                             <button className="button_inc" onClick={aumentarCantidadProducto} disabled={quantity >= productVariant.stock}>+</button>
                         </div>
-                        <button onClick={() => handleAddProduct(productVariant,quantity)} disabled = {!tallaVariant && true} className="button_addCart">{tallaVariant ? "añadir al carrito" : "seleccione una talla"}</button>
+                        <button onClick={() => handleAddProduct(productVariant,quantity,product)} disabled = {!tallaVariant && true} className="button_addCart">{tallaVariant ? "añadir al carrito" : "seleccione una talla"}</button>
                     </div>
                     <div className="container_product_description">
                         <button onClick={toggleDescription}><span>Descripción</span>{openBoxDescription ? "-" : "+"}</button>

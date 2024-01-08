@@ -106,7 +106,7 @@ const Navbar = () => {
                     <span onClick={toogleSearchBox} className="navbar_icon_search"><CiSearch className="icon_search"/>buscador</span>
                     <a href="/" className="navbar_icon_orders"><FaTruckFast className="icon_orders"/>mis pedidos</a>
                     <a href="/" className="navbar_icon_account"><MdOutlineAccountCircle className="icon_account"/>mi cuenta</a>
-                    <a href="/carrito" className="navbar_icon_cart"><MdOutlineShoppingBag className="icon_cart"/>carrito {lista.length >= 1 && <span>lista.length</span>}</a>
+                    <a href="/carrito" className="navbar_icon_cart"><MdOutlineShoppingBag className="icon_cart"/>carrito {lista.length >= 1 && <span>{lista.length}</span>}</a>
                 </div>
                 {categorias && 
                 <>
