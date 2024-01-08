@@ -7,12 +7,13 @@ import { carritoContext } from "../context/CarritoContext";
 import { listarCostosEnvio } from "../services/carrito.service";
 import { createOrder, createShipment, paymenMethods } from "../services/orders.service";
 import { CiShoppingCart } from "react-icons/ci";
-import { FaTruckFast } from "react-icons/fa6";
+import { FaRegCreditCard } from "react-icons/fa";
 import "../styles/CarritoPage.css"
 import PaymentMethods from "../components/PaymentMethods";
 
 const CarritoPage = () => {
     
+    const [ processOrder, setProcessOrder ] = useState('Crear orden')
     const [ listadoEnvios, setListadoEnvios ] = useState();
     const { lista, quitar } = useContext(carritoContext);
     const [ total, setTotal ] = useState(0);
@@ -31,6 +32,7 @@ const CarritoPage = () => {
 
     const toggle = () => setOpenBoxEnvios(!openBoxEnvios);
     const handleRadioClick = () => setIsChecked(!isChecked);
+    const backProcess = () => setProcessOrder("Crear orden");
 
     const handleRemove = (producto) => {
         quitar(producto);
@@ -71,11 +73,12 @@ const CarritoPage = () => {
                 };
             })
         };
-        console.log(order);
-        const res = await createOrder(order);
-        const id_order = res.data.data.order_id;
-        const resShipment = await createShipment(id_order,2,districtId);
-        console.log(resShipment.data);
+        setProcessOrder("Pago");
+        // console.log(order);
+        // const res = await createOrder(order);
+        // const id_order = res.data.data.order_id;
+        // const resShipment = await createShipment(id_order,2,districtId);
+        // console.log(resShipment.data);
     }    
 
     const handleChangeDepartamento = (e) => {
@@ -124,15 +127,15 @@ const CarritoPage = () => {
     }, [lista, precioEnvio, subTotal, isChecked]);
 
     return(
-        <div className="section_order">
-        <section className="carrito-info">
+        <div className="box" style={{position: "relative"}}>
+            <section className="purchasing_process">
+                <div><CiShoppingCart className="icon_process"/><span className={`${processOrder == "Crear orden" ? "actual_process" : ""}`}>Crear orden</span></div>
+                <div><MdOutlinePayments className="icon_process"/><span className={`${processOrder == "Pago" ? "actual_process" : ""}`}>Pago</span></div>
+            </section>
+            <div className={`section_order ${processOrder == "Pago"  ? "translate_section" : ""}`}>         
+            <section className="carrito-info">
                 {lista.length <= 0 ? <div className="carrito-sinProductos"><PiHandbagDuotone className="icon-sinProductos" />No tienes productos añadidos <button onClick={handleBack} className="btn-seguirComprando">Seguir comprando</button></div>
                  : <>
-                 <section className="purchasing_process">
-                    <div><CiShoppingCart className="icon_process"/><span>Crear orden</span></div>
-                    <div><MdOutlinePayments className="icon_process"/><span>Pago</span></div>
-                 </section>
-                 <section></section>
                  <div className="carrito-productos">                   
                     {lista.map((elem => (
                         <div className="carrito-productos-item" key={elem.id}>                        
@@ -232,12 +235,12 @@ const CarritoPage = () => {
                     </div>
                     </>}
             </section>
-            <section className="payment_section">
-                    <h1>Seleccione método de pago</h1>
+            <section className="payment_section">                    
                     {listPaymentMethods && 
-                     <PaymentMethods data={listPaymentMethods} />}
+                     <PaymentMethods toggleProcess={backProcess} data={listPaymentMethods} />}
             </section>
-        </div>
+            </div>
+    </div>
     );
 }
 

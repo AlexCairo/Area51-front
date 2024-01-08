@@ -1,0 +1,133 @@
+.payment_box{
+    position: relative;
+    margin-top: 0rem;
+}
+.payment_box{
+    transition: all 2s ease;
+}
+.paymentsMethods_container{
+    width: 60rem;
+    height: 40rem;
+    border-top: 2px solid var(--contrast-color);
+}
+.group_button{
+    display: flex;
+    justify-content: center;
+}
+.group_button button{
+    cursor: pointer;
+    margin-bottom: 1px;
+    background: var(--secondary-background-color);
+    border: 0;
+    padding: calc(var(--padding)*0.5);
+    font-family: var(--main-font-family);
+    font-size: calc(var(--font-size)*0.65);
+    box-shadow: inset 0px 0px 4px 5px var(--contrast-color);
+}
+.button_selected{
+    box-shadow: 0px -5px 10px 1px var(--contrast-color) !important;
+}
+.paymentsMethods_container > h2{
+    text-align: center;
+}
+.method_container{
+    min-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--gap)*2.5);
+}
+.method{
+    border: 1px solid var(--secondary-text-color);
+    border-radius: calc(var(--border-radius)*5);
+    padding: calc(var(--padding)*1.25);
+    box-shadow: 0px 2px 5px 0px var(--secondary-text-color);
+    transition: transform .2s ease;
+}
+.modal{
+    background: var(--secondary-text-color);
+    border-radius: calc(var(--border-radius)*5);
+    animation: openModal both .3s;
+    animation-delay: .1s;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -60%);
+}
+.modal-content{
+    padding: calc(var(--padding)*0.75) 0;
+    display: grid;
+    place-items: center;
+    height: 40rem;
+    width: 35rem;
+}
+.modalRequirement p{
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--principal-text-color);
+}
+.modalRequirement input{    
+    color: var(--principal-text-color);
+    width: 100%;
+    text-align: center;
+}
+.modalRequirement button{
+    border: 0;
+    display: block;
+    padding: calc(var(--padding)*0.75);
+}
+.modalRequirement button{
+    cursor: pointer;
+    font-family: var(--main-font-family);
+}
+.modal-content img{
+    width: 60%;
+    border-radius: calc(var(--border-radius)*5);
+}
+.checkButton{
+    color: var(--secondary-text-color);
+    width: 100%;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-size: calc(var(--font-size)*0.65);
+    background: var(--secondary-background-color);
+}
+.checkButton:disabled{
+    background: #cdcdcd;
+}
+.cancelButton{
+    color: var(--principal-text-color);
+    position: absolute;
+    top: 0rem;
+    right: 1rem;
+    background: none;
+    font-weight: bold;
+    font-size: calc(var(--font-size)*1.25);
+}
+.buttonBack{
+    cursor: pointer;
+    position: absolute;
+    bottom: 4rem;
+    left: 0;
+    font-family: var(--main-font-family);
+    font-size: calc(var(--font-size)*0.5);
+    display: flex;
+    border: 0;
+    align-items: center;
+    background: none;
+    color: var(--secondary-text-color);
+    padding: calc(var(--padding)*0.5) 0;
+    border-bottom: transparent solid 2px;
+}
+.buttonBack:hover{
+    border-bottom: solid 2px var(--contrast-color);
+}
+@keyframes openModal {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

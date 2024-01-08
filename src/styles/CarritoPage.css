@@ -10,6 +10,18 @@
     }
 }
 
+.box{
+    font-family: var(--main-font-family);
+    overflow: hidden;
+}
+.section_order{
+    display: flex; 
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+.translate_section{
+    transform: translateX(-108%);
+}
 .carrito-title{
     margin-top: 5rem;
     background: #07043a;
@@ -42,7 +54,11 @@
     font-size: calc(var(--font-size)*0.5);
     display: block;
     width: 100%;
-    border-top: red 5px solid;
+    border-top: rgb(225, 225, 225) 5px solid;
+    transition: all .3s ease;
+}
+.actual_process{
+    border-top: red 5px solid !important;
 }
 .icon_process{
     font-size: calc(var(--font-size)*1.25);
@@ -95,7 +111,9 @@
     cursor: pointer;
 }
 .carrito-info{
-    position: relative;
+    flex: 0 0 100%;
+    /* box-sizing: border-box; */
+    /* min-width: 95%; */
     font-family: var(--main-font-family);
     padding: .5rem;
     display: flex;
@@ -107,7 +125,7 @@
     padding: 1rem;
     min-width: 23rem;
 }
-.button-disabled{
+.carrito-info-resumen button:disabled{
     background: linear-gradient(45deg, #000, gray, rgb(207, 207, 207), #000, gray);
     background-size: 400% 400%;
     animation: wave 8s linear infinite;
@@ -231,7 +249,18 @@
     transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .payment_section{
+    flex: 0 0 100%;
+    /* transition: all 1s ease; */
     font-family: var(--main-font-family);
+    display: grid;
+    place-items: center;
+}
+.payment_section h1{
+    font-size: calc(var(--font-size)*0.85);
+    display: flex;
+    gap: calc(var(--gap)*0.75);
+    align-items: center;
+    justify-content: center;
 }
 @media (min-width:1230px){
     .carrito-info-more{
