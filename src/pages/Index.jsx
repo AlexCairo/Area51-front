@@ -4,9 +4,6 @@ import { listarSubCategorias } from "../services/categorias.service";
 import "../styles/Index.css";
 import Loader from "../components/Loader";
 
-//Images
-import imgDefault from "../images/modelo4.jpg"
-
 const Index = () => {
 
     const [ subCategorias, setSubCategorias ] = useState();

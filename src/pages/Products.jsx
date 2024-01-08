@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom"
 import { listarSubCategorias } from "../services/categorias.service";
 import Loader from "../components/Loader";
 
-import imgDefault from "../images/modelo1.jpg"
-
 import "../styles/Products.css"
 
 const ProductsPage = () => {
