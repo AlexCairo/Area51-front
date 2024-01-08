@@ -60,7 +60,7 @@ const ProductsPage = () => {
                       <div className="card_item" key={item.id}>
                         <div className="card_item_container_img">              
                           <a href={`/${product.name.toLowerCase().replaceAll(" ","-")}/${product.id}/variante/${item.id}`}>
-                            <img src={imgDefault} alt={item.name}/>
+                            <img src={item.images[0].image_path} alt={item.name}/>
                           </a>
                           <ul className="colors_list">
                             {Array.from(new Set(product.variants.map(elem => elem.color.value))).map((uniqueColor, index) => (

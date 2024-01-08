@@ -98,7 +98,7 @@ const Navbar = () => {
                             <span className="escribenos_link_item">escríbenos</span>
                         </li>
                         <li className="carrito_link">
-                            <a href="/carrito" className="carrito_link_item"><img src={carrito} alt="carrito_icon"/></a>
+                            <a href="/carrito" className="carrito_link_item"><img src={carrito} alt="carrito_icon"/>{lista.length >= 1 && <span>{lista.length}</span>}</a>
                         </li>
                     </ul>
                 </div>
