@@ -1,18 +1,9 @@
-@keyframes wave {
-    0% {
-        background-position: 0 0;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100%{
-        background-position: 0 0;
-    }
-}
+
 
 .box{
     font-family: var(--main-font-family);
     overflow: hidden;
+    position: relative;
 }
 .section_order{
     display: flex; 
@@ -20,7 +11,7 @@
     transition: transform 0.5s ease-in-out;
 }
 .translate_section{
-    transform: translateX(-108%);
+    transform: translateX(-100%);
 }
 .carrito-title{
     margin-top: 5rem;
@@ -112,8 +103,7 @@
 }
 .carrito-info{
     flex: 0 0 100%;
-    /* box-sizing: border-box; */
-    /* min-width: 95%; */
+    box-sizing: border-box;
     font-family: var(--main-font-family);
     padding: .5rem;
     display: flex;
@@ -124,11 +114,6 @@
     border: solid 2px rgb(215, 215, 215);
     padding: 1rem;
     min-width: 23rem;
-}
-.carrito-info-resumen button:disabled{
-    background: linear-gradient(45deg, #000, gray, rgb(207, 207, 207), #000, gray);
-    background-size: 400% 400%;
-    animation: wave 8s linear infinite;
 }
 .carrito-info-resumen h4{
     border-bottom: solid 1px rgb(215, 215, 215);
@@ -250,7 +235,6 @@
 }
 .payment_section{
     flex: 0 0 100%;
-    /* transition: all 1s ease; */
     font-family: var(--main-font-family);
     display: grid;
     place-items: center;

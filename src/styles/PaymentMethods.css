@@ -1,9 +1,34 @@
 .payment_box{
     position: relative;
-    margin-top: 0rem;
-}
-.payment_box{
     transition: all 2s ease;
+}
+.pick_up_in_store{
+    display: flex;
+    flex-direction: column;
+}
+.icon_check{
+    font-size: calc(var(--font-size)*12);
+    color: #36b536;
+}
+.pick_up_in_store span, .pick_up_in_store strong{
+    padding: calc(var(--padding)*0.5);
+    font-size: calc(var(--font-size)*0.75);
+}
+.pick_up_in_store a{
+    cursor: pointer;
+    padding: calc(var(--padding)*0.5);
+    border: 0;
+    font-size: calc(var(--font-size)*0.75);
+    font-family: var(--main-font-family);
+    transition: all .3s ease;
+    background: var(--contrast-color);
+    text-align: center;
+    text-decoration: none;
+    color: var(--secondary-background-color);
+}
+.pick_up_in_store a:hover{
+    background: var(--secondary-text-color);
+    color: var(--principal-text-color);
 }
 .paymentsMethods_container{
     width: 60rem;
